@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".CountdownTimer"
+                   android:parentActivityName=".MainActivity">
+
+        </activity>
     </application>
 
 </manifest>
