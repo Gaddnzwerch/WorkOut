@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.gaddenzwerch.workout">
+
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -19,11 +20,13 @@
         </activity>
         <activity
             android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".CountdownTimer"
-                   android:parentActivityName=".MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".CountdownTimer"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ExerciseActivity"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

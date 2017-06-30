@@ -2,12 +2,14 @@ package de.gaddenzwerch.workout;
 
 import android.content.Intent;
 import android.os.Vibrator;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.os.CountDownTimer;
 
-public class CountdownTimer extends AppCompatActivity {
+public class CountdownTimer extends AppCompatActivity
+{
 
     protected static final int TIMER_FINISHED = 1;
     protected static final int TIMER_CANCELLED = 2;
@@ -39,6 +41,7 @@ public class CountdownTimer extends AppCompatActivity {
                 mTvTime.setText(lSecondsUntilFinished.toString());
 
                 if (lSecondsUntilFinished == 2) {
+                    //TODO build function to get the kind of notification (inline class notificationType)
                     notifyCountDown();
                 }
             }
@@ -56,11 +59,22 @@ public class CountdownTimer extends AppCompatActivity {
         this.startTimer();
     }
 
+    @Override
+    public void onBackPressed(){
+        mCountDownTimer.cancel();
+        finish();
+        confirmLeaving();
+    }
+
+    private void confirmLeaving() {
+        LeaveStayFragment lLeaveStay = new LeaveStayFragment();
+        lLeaveStay.show(getSupportFragmentManager(), "LeaveStayFragment");
+    }
+
+
     private void startTimer() {
         mCountDownTimer.start();
     }
-
-    //TODO build function to get the kind of notification (inline class notificationType)
 
     private void notifyCountDown() {
         //TODO check for permissions and run different kinds of notifications

@@ -5,4 +5,9 @@
     <string name="edit_message">Nachricht eingeben</string>
     <string name="edit_countdown_time">Zeit</string>
     <string name="button_start">Start</string>
+    <string name="Success">Erfolg</string>
+    <string name="Failure">Fehlschlag</string>
+    <string name="Leave">Verlassen</string>
+    <string name="Stay">Bleiben</string>
+    <string name="leave_timer">Den Timer zu verlassen bedeutet ihn abzubrechen. Wirklich Verlassen?</string>
 </resources>
