@@ -9,6 +9,8 @@ import android.os.CountDownTimer;
 
 public class CountdownTimer extends AppCompatActivity {
 
+    protected static final int TIMER_FINISHED = 1;
+    protected static final int TIMER_CANCELLED = 2;
     private Integer mTimeToCount;
     private TextView mTvTime;
     private CountDownTimer mCountDownTimer;
@@ -27,6 +29,9 @@ public class CountdownTimer extends AppCompatActivity {
         mTvTime = (TextView) findViewById(R.id.tvTime);
         mTvTime.setText(mTimeToCount.toString());
 
+        TextView tvTimerText = (TextView) findViewById(R.id.tvTimerText);
+        tvTimerText.setText(intent.getStringExtra(MainActivity.EXTRA_TIMER_NAME));
+
         mCountDownTimer = new CountDownTimer(this.mTimeToCount * 1000, 1000) {
 
             public void onTick(long pMillisecondsUntilFinished) {
@@ -39,7 +44,7 @@ public class CountdownTimer extends AppCompatActivity {
             }
 
             public void onFinish() {
-                mTvTime.setText("");
+                setResult(TIMER_FINISHED);
                 finish();
             }
         };
@@ -55,7 +60,10 @@ public class CountdownTimer extends AppCompatActivity {
         mCountDownTimer.start();
     }
 
+    //TODO build function to get the kind of notification (inline class notificationType)
+
     private void notifyCountDown() {
+        //TODO check for permissions and run different kinds of notifications
         mVibrator.vibrate((long) 100);
     }
 }

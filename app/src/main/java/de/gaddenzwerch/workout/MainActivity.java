@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
-
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "de.gaddenzwerch.workout.MESSAGE";
     public static final String EXTRA_TIME = "de.gaddenzwerch.workout.TIME";
+    public static final String EXTRA_TIMER_NAME = "de.gaddenzwerch.workout.TIMER_NAME";
+    private static final int RESULT_TIMER = 1;
+    private static final int RESULT_EXERCISE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,24 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.editTime);
         Integer timeToCount = Integer.parseInt(editText.getText().toString());
         intent.putExtra(EXTRA_TIME, timeToCount);
-        startActivity(intent);
+        intent.putExtra(EXTRA_TIMER_NAME, "Pause");
+        startActivityForResult(intent, RESULT_TIMER);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        switch (requestCode){
+            case RESULT_TIMER:
+                if(resultCode == CountdownTimer.TIMER_FINISHED){
+                    EditText editText = (EditText) findViewById(R.id.editText);
+                    String message = "Abgelaufen";
+                    editText.setText(message);
+                }
+                break;
+            case RESULT_EXERCISE:
+                break;
+        }
+
+
     }
 }
