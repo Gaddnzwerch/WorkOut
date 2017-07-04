@@ -62,13 +62,13 @@ public class CountdownTimer extends AppCompatActivity
     @Override
     public void onBackPressed(){
         mCountDownTimer.cancel();
+        setResult(TIMER_CANCELLED);
         finish();
-        confirmLeaving();
     }
 
-    private void confirmLeaving() {
-        LeaveStayFragment lLeaveStay = new LeaveStayFragment();
-        lLeaveStay.show(getSupportFragmentManager(), "LeaveStayFragment");
+    private boolean confirmLeaving() {
+        //TODO display fragment to confirm
+        return true;
     }
 
 

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import java.util.Vector;
+import de.gaddenzwerch.workout.view.ExerciseActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "de.gaddenzwerch.workout.MESSAGE";
@@ -14,7 +14,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_TIMER_NAME = "de.gaddenzwerch.workout.TIMER_NAME";
     private static final int RESULT_TIMER = 1;
     private static final int RESULT_EXERCISE = 2;
-    private Vector mActivities;
+//    private Vector<AppCompatActivity> mActivities;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-
-        Intent intent = new Intent(this, ExerciseActivity.class);
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivityForResult(intent, RESULT_EXERCISE);
+        startWorkout(view);
     }
 
     /** Called to start a Countdown timer */
@@ -42,6 +38,34 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, RESULT_TIMER);
     }
 
+    public void startWorkout(View view) {
+        loadWorkout();
+
+        Intent intent = new Intent(this, ExerciseActivity.class);
+        String message = "Übung Name";
+
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivityForResult(intent, RESULT_EXERCISE);
+
+        intent = new Intent(this, CountdownTimer.class);
+        Integer timeToCount = 5;
+        intent.putExtra(EXTRA_TIME, timeToCount);
+        intent.putExtra(EXTRA_TIMER_NAME, "Pause");
+        startActivityForResult(intent, RESULT_TIMER);
+
+/*        for (AppCompatActivity lActivity:mActivities){
+
+        }*/
+    }
+
+    private void startNextActivity() {
+
+    }
+
+    private void loadWorkout() {
+        //TODO load workout
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         switch (requestCode){
@@ -50,13 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case RESULT_EXERCISE:
                 EditText editText = (EditText) findViewById(R.id.editText);
-
-                if (resultCode == ExerciseActivity.EXERCISE_SUCCESSFUL){
-                    editText.setText(R.string.Success);
-                }
-                else{
-                    editText.setText(R.string.Failure);
-                }
                 break;
         }
     }

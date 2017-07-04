@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="de.gaddenzwerch.workout.ExerciseActivity">
+    tools:context="de.gaddenzwerch.workout.view.ExerciseActivity">
+
 
     <ImageButton
         android:id="@+id/ibSuccess"
@@ -13,7 +14,6 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/Success"
-        android:onClick="finishedExcerciseSuccessfull"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
@@ -26,7 +26,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:contentDescription="@string/Failure"
-        android:onClick="finishedExcerciseNotSuccessfull"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:srcCompat="@android:drawable/ic_delete" />
@@ -43,4 +42,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="-89dp" />
 </android.support.constraint.ConstraintLayout>

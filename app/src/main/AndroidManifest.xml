@@ -25,7 +25,7 @@
             android:name=".CountdownTimer"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ExerciseActivity"
+            android:name=".view.ExerciseActivity"
             android:parentActivityName=".MainActivity" />
     </application>
 
