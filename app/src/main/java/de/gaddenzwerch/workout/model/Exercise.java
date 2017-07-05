@@ -79,4 +79,8 @@ public class Exercise {
         return Objects.hash(mId, mName);
     }
 
+    public boolean isEmpty() {
+        //TODO implement
+        return false;
+    }
 }

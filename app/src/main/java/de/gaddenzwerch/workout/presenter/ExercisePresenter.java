@@ -2,7 +2,6 @@ package de.gaddenzwerch.workout.presenter;
 
 import android.support.annotation.NonNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.gaddenzwerch.workout.model.Exercise;
@@ -91,7 +90,7 @@ public class ExercisePresenter implements ExerciseContract.Presenter {
     }
 
     private void processEmptyExercises() {
-        mExerciseView.showNoTasks();
+        mExerciseView.showNoExercises();
     }
 
     @Override

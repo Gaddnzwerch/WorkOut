@@ -27,6 +27,8 @@
         <activity
             android:name=".view.ExerciseActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".view.AddEditExerciseActivity" />
+        <activity android:name=".view.ExerciseDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -15,11 +15,10 @@ public interface ExerciseContract {
         void setLoadingIndicator(boolean active);
         void showExercises(List<Exercise> exercises);
         void showAddExercise();
-        void showExerciseDetailsUi(UUID taskId);
+        void showExerciseDetailsUi(UUID exerciseId);
         void showNoExercises();
         boolean isActive();
         void showLoadingExercisesError();
-        void showNoTasks();
     }
 
     interface Presenter extends BasePresenter {
