@@ -100,6 +100,6 @@ public class ExercisePresenter implements ExerciseContract.Presenter {
 
     @Override
     public void openExerciseDetails(@NonNull Exercise requestedExercise) {
-        mExerciseView.showExerciseDetailsUi(requestedExercise.getId());
+        mExerciseView.showExerciseDetailsUi(requestedExercise.getId().toString());
     }
 }

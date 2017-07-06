@@ -15,7 +15,7 @@ public interface ExerciseContract {
         void setLoadingIndicator(boolean active);
         void showExercises(List<Exercise> exercises);
         void showAddExercise();
-        void showExerciseDetailsUi(UUID exerciseId);
+        void showExerciseDetailsUi(String exerciseId);
         void showNoExercises();
         boolean isActive();
         void showLoadingExercisesError();

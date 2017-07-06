@@ -12,10 +12,16 @@
     <string name="Leave">Leave</string>
     <string name="Stay">Stay</string>
     <string name="leave_timer">Leaving the timer means to abort it. Really leave?</string>
-    <string name="no_exercises_all">There are currently no execrises!</string>
+    <string name="no_exercises_all">There are currently no exercises!</string>
     <string name="no_exercises_add">Add an exercise</string>
     <string name="loading_exercises_error">Error while loading tasks</string>
     <string name="title_hint">Title</string>
     <string name="description_hint">Description</string>
     <string name="empty_exercise_message">Exercises cannot be empty</string>
+    <string name="add_exercise">Add Exercise</string>
+    <string name="edit_exercise">Edit exercise</string>
+    <string name="loading">loading…</string>
+    <string name="no_data">No data found</string>
+    <string name="navigation_view_header_title">Exercises</string>
+    <string name="list_title">Exercise List</string>
 </resources>

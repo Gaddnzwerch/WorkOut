@@ -47,7 +47,7 @@ public class AddEditExerciseFragment extends Fragment implements AddEditExercise
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_edit_task_done);
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_edit_exercise_done);
         fab.setImageResource(R.drawable.ic_done);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

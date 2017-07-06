@@ -28,15 +28,19 @@ public class AddEditExercisePresenter implements AddEditExerciseContract.Present
 
     /**
      * Creates a presenter for the add/edit view.
-     *
-     * @param exerciseId ID of the exercise to edit on null for a new exercise
+     *  @param exerciseId ID of the exercise to edit on null for a new exercise
      * @param exerciseRepository a repository of data for tasks
      * @param addExerciseView the add/edit view
      * @param shouldLoadDataFromRepo whether data needs to be loaded or not (for config changes)
      */
-    public AddEditExercisePresenter(@Nullable UUID exerciseId, @NonNull ExerciseDataSource exerciseRepository,
+    public AddEditExercisePresenter(@Nullable String exerciseId, @NonNull ExerciseDataSource exerciseRepository,
                                     @NonNull AddEditExerciseContract.View addExerciseView, boolean shouldLoadDataFromRepo) {
-        mExerciseId = exerciseId;
+        if(exerciseId != null) {
+            mExerciseId = UUID.fromString(exerciseId);
+        } else {
+            mExerciseId = null;
+        }
+
         mExerciseRepository = exerciseRepository;
         mAddExerciseView = addExerciseView;
         mIsDataMissing = shouldLoadDataFromRepo;
@@ -46,7 +50,7 @@ public class AddEditExercisePresenter implements AddEditExerciseContract.Present
 
     @Override
     public void start() {
-        if(isNewExercise()) {
+        if(!isNewExercise()) {
             populateExercise();
         }
 

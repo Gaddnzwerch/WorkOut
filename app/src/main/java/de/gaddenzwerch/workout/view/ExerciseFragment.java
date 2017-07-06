@@ -20,7 +20,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import de.gaddenzwerch.workout.R;
 import de.gaddenzwerch.workout.model.Exercise;
@@ -94,7 +93,6 @@ public class ExerciseFragment extends Fragment implements ExerciseContract.View 
         });
 
         //TODO Set up floating action button
-        /*
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_exercise);
 
         fab.setImageResource(R.drawable.ic_add);
@@ -104,7 +102,7 @@ public class ExerciseFragment extends Fragment implements ExerciseContract.View 
                 mPresenter.addNewExercise();
             }
         });
-        */
+
         // Set up progress indicator
         final ScrollChildSwipeRefreshLayout swipeRefreshLayout =
                 (ScrollChildSwipeRefreshLayout) root.findViewById(R.id.refresh_layout);
@@ -161,7 +159,7 @@ public class ExerciseFragment extends Fragment implements ExerciseContract.View 
         mListAdapter.replaceData(exercises);
 
         mExerciseView.setVisibility(View.VISIBLE);
-        mExerciseView.setVisibility(View.GONE);
+        mNoExerciseView.setVisibility(View.GONE);
     }
 
     @Override
@@ -171,7 +169,7 @@ public class ExerciseFragment extends Fragment implements ExerciseContract.View 
     }
 
     @Override
-    public void showExerciseDetailsUi(UUID exerciseId) {
+    public void showExerciseDetailsUi(String exerciseId) {
         Intent intent = new Intent(getContext(), ExerciseDetailActivity.class);
         intent.putExtra(ExerciseDetailActivity.EXTRA_EXERCISE_ID, exerciseId);
         startActivity(intent);
@@ -258,6 +256,12 @@ public class ExerciseFragment extends Fragment implements ExerciseContract.View 
             titleTV.setText(exercise.getExerciseName());
 
             // No listeners for actions needed at the moment
+            rowView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    mExerciseItemListener.onExerciseClick(exercise);
+                }
+            });
 
             return rowView;
         }
