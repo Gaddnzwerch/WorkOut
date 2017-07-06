@@ -1,4 +1,4 @@
-package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data;
+package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 import de.gaddenzwerch.workout.model.Exercise;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.WorkOutDbHelper;
 
 
 /**
@@ -20,12 +21,12 @@ public class ExerciseLocalDataSource
         implements ExerciseDataSource {
 
     private static ExerciseLocalDataSource INSTANCE;
-    private ExerciseDbHelper mDbHelper;
+    private WorkOutDbHelper mDbHelper;
 
     // Prevent direct instantiation
     private ExerciseLocalDataSource(@NonNull Context context) {
         //TODO find substitute for checkNotNull(context);
-        mDbHelper = new ExerciseDbHelper(context);
+        mDbHelper = new WorkOutDbHelper(context);
     }
 
     public static ExerciseLocalDataSource getInstance(@NonNull Context context) {

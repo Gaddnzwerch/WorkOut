@@ -1,4 +1,4 @@
-package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data;
+package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +16,7 @@ public class ExerciseRepository
         implements ExerciseDataSource {
 
     private static ExerciseRepository INSTANCE = null;
-    private final ExerciseDataSource mTasksDataSource;
+    private final ExerciseDataSource mExercisesDataSource;
 
     Map<UUID, Exercise> mCachedExercises;
 
@@ -27,8 +27,8 @@ public class ExerciseRepository
     boolean mCacheIsDirty = false;
 
     // Prevent direct instantiation
-    private ExerciseRepository(@NonNull ExerciseDataSource tasksLocalDataSource) {
-        mTasksDataSource = tasksLocalDataSource;
+    private ExerciseRepository(@NonNull ExerciseDataSource exercisesLocalDataSource) {
+        mExercisesDataSource = exercisesLocalDataSource;
     }
 
     /**
@@ -68,7 +68,7 @@ public class ExerciseRepository
             // Not necessary as there currently is no data stored in network.
         } else {
             // Query the local storage if available. If not, query the network.
-            mTasksDataSource.getExercises(new LoadExerciseCallback() {
+            mExercisesDataSource.getExercises(new LoadExerciseCallback() {
                 @Override
                 public void onExerciseLoaded(List<Exercise> exercises) {
                     refreshCache(exercises);
@@ -87,7 +87,7 @@ public class ExerciseRepository
     @Override
     public void saveExercise(@NonNull Exercise exercise){
         //TODO find substitute for checkNull(exercise)
-        mTasksDataSource.saveExercise(exercise);
+        mExercisesDataSource.saveExercise(exercise);
 
         // Do in memory cache update to keep the app UI up to date
         if(mCachedExercises == null) {
@@ -112,7 +112,7 @@ public class ExerciseRepository
         // Load from server/persisted if needed.
 
         // Is the task in the local data source? If not, query the network.
-        mTasksDataSource.getExercise(exerciseId, new GetExerciseCallback() {
+        mExercisesDataSource.getExercise(exerciseId, new GetExerciseCallback() {
             @Override
             public void onExerciseLoaded(Exercise exercise) {
                 // Do in memory cache update to keep the app UI up to date
@@ -163,7 +163,7 @@ public class ExerciseRepository
     @Override
     public void updateExercise(@NonNull Exercise exercise) {
         //TODO find substitute for checkNotNull(exercise)
-        mTasksDataSource.updateExercise(exercise);
+        mExercisesDataSource.updateExercise(exercise);
 
         Exercise currentExercise = new Exercise(exercise.getId(), exercise.getExerciseName(), exercise.getExerciseDescription(), exercise.getImage());
 

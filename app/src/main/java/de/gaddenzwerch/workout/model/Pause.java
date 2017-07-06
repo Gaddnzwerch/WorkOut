@@ -1,9 +1,5 @@
 package de.gaddenzwerch.workout.model;
 
-/**
- * Created by andreass on 04.07.2017.
- */
-
 public class Pause {
     private int mDurationInSec;
 

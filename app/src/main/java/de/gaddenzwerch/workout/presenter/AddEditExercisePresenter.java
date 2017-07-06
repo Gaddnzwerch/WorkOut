@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import java.util.UUID;
 
 import de.gaddenzwerch.workout.model.Exercise;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseDataSource;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseDataSource;
 
 /**
  * Listens to user actions from the UI, retrieves the data and updates

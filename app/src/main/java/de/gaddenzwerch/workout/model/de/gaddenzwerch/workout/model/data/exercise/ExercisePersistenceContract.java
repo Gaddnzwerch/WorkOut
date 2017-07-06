@@ -1,4 +1,4 @@
-package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data;
+package de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise;
 
 import android.provider.BaseColumns;
 

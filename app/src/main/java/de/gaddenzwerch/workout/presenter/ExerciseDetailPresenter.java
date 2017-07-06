@@ -7,8 +7,8 @@ import android.support.annotation.Nullable;
 import java.util.UUID;
 
 import de.gaddenzwerch.workout.model.Exercise;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseDataSource;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseRepository;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseDataSource;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseRepository;
 
 public class ExerciseDetailPresenter implements ExerciseDetailContract.Presenter {
 

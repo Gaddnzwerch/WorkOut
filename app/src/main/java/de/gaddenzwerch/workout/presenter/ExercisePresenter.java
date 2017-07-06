@@ -5,8 +5,8 @@ import android.support.annotation.NonNull;
 import java.util.List;
 
 import de.gaddenzwerch.workout.model.Exercise;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseDataSource;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseRepository;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseDataSource;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseRepository;
 
 /**
  * Listens to user actions from the UI , retrieves the data and updates the UI as required.

@@ -3,13 +3,13 @@ package de.gaddenzwerch.workout;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseLocalDataSource;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseRepository;
-import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.FakeExercisesRemoteDataSource;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseLocalDataSource;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseRepository;
+import de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.exercise.ExerciseDataSource;
 
 /**
  * Enables injection of mock implementations for
- * {@link de.gaddenzwerch.workout.model.de.gaddenzwerch.workout.model.data.ExerciseDataSource} at compile time.
+ * {@link ExerciseDataSource} at compile time.
  * This is useful for testing as it allows us to use a fake instance of the class to isolate the
  * dependencies and run a test hermetically.
  *

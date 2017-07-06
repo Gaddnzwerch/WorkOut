@@ -1,12 +1,19 @@
 package de.gaddenzwerch.workout.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
 import java.util.Objects;
 import java.util.UUID;
 
 public class Exercise {
+    @NonNull
     private UUID mId;
+    @Nullable
     private String mName;
+    @Nullable
     private String mDescription;
+    @Nullable
     private String mImage;
 
     /**
@@ -15,14 +22,14 @@ public class Exercise {
      * @param description of the exercise
      * @param image graphical representation
      */
-    public Exercise(String name, String description, String image){
+    public Exercise(@Nullable String name, @Nullable String description, @Nullable String image){
         mId = UUID.randomUUID();
         mName = name;
         mDescription = description;
         mImage = image;
     }
 
-    public Exercise(UUID id, String name, String description, String image) {
+    public Exercise(@NonNull UUID id, @Nullable String name, @Nullable String description, @Nullable String image) {
         mId = id;
         mName = name;
         mDescription = description;
@@ -37,20 +44,8 @@ public class Exercise {
         return mName;
     }
 
-    public void setExerciseName(String name) {
-        mName = name;
-    }
-
     public String getExerciseDescription() {
         return mDescription;
-    }
-
-    public void setExerciseDescription(String description) {
-        mDescription = description;
-    }
-
-    public void setImage(String image) {
-        mImage = image;
     }
 
     public String getImage() {
