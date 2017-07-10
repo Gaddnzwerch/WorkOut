@@ -11,7 +11,7 @@ public class Set {
     @Nullable
     private String mName;
     @NonNull
-    private UUID mExerciseId;
+    private Exercise mExercise;
     @NonNull
     private int mQuantity;
     @Nullable
@@ -21,10 +21,10 @@ public class Set {
      * Creates a new Set with the {@code name) where {@link Exercise} is repeated {@code quantity}
      * times. A {@code pauseInSec} can be provided.
      */
-    public Set(@Nullable String name, @NonNull UUID exerciseId, @NonNull int quantity, @Nullable int pauseInSec) {
+    public Set(@Nullable String name, @NonNull Exercise exerciseId, @NonNull int quantity, @Nullable int pauseInSec) {
         mId = UUID.randomUUID();
         mName = name;
-        mExerciseId = exerciseId;
+        mExercise = exerciseId;
         mQuantity = quantity;
         mPause = new Pause(pauseInSec);
     }
@@ -32,11 +32,11 @@ public class Set {
     /**
      * This constructor creates an already existing task given the {@code id}.
      */
-    public Set(@NonNull UUID id, @Nullable String name, @NonNull UUID exerciseId, @NonNull int quantity, @Nullable int pauseInSec) {
+    public Set(@NonNull UUID id, @Nullable String name, @NonNull Exercise exerciseId, @NonNull int quantity, @Nullable int pauseInSec) {
         //TODO read values
         mId = id;
         mName = name;
-        mExerciseId = exerciseId;
+        mExercise = exerciseId;
         mQuantity = quantity;
         mPause = new Pause(pauseInSec);
     }
@@ -48,7 +48,7 @@ public class Set {
     public Set(@NonNull Set originalSet) {
         mId = originalSet.getId();
         mName = originalSet.getName();
-        mExerciseId = originalSet.getExerciseId();
+        mExercise = originalSet.getExercise();
         mQuantity = originalSet.getQuantity();
         mPause = new Pause(originalSet.getPauseTimeInSec());
     }
@@ -63,8 +63,8 @@ public class Set {
         return mQuantity;
     }
 
-    public UUID getExerciseId() {
-        return mExerciseId;
+    public Exercise getExercise() {
+        return mExercise;
     }
 
     public Pause getPause() {
