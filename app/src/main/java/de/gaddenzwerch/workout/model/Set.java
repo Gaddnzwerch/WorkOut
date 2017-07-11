@@ -18,9 +18,9 @@ public class Set {
      * Creates a new Set with the {@code name) where {@link Exercise} is repeated {@code quantity}
      * times. A {@code pauseInSec} can be provided.
      */
-    public Set(@Nullable String name, @NonNull Exercise exerciseId, @NonNull int quantity) {
+    public Set(@Nullable String name, @NonNull Exercise exercise, @NonNull int quantity) {
         mName = name;
-        mExercise = exerciseId;
+        mExercise = exercise;
         mQuantity = quantity;
     }
 
@@ -38,7 +38,7 @@ public class Set {
         return mName;
     }
 
-    public int getQuantity() {
+    protected int getQuantity() {
         return mQuantity;
     }
 
@@ -46,5 +46,13 @@ public class Set {
         return mExercise;
     }
 
+    protected void setQuantity(int quantity) {
+        mQuantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return mName + " " + mExercise.getExerciseName() + " " + mQuantity + " x";
+    }
 
 }
